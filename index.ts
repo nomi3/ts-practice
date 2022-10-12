@@ -33,6 +33,20 @@ let anything: any = true;
 let unionType: number | string = 10;
 let unionTypes: (number | string)[] = [10, 'hello'];
 
+type ClothSize = 'small' | 'medium' | 'large';
+
 const apple = 'apple';
 
-let clothSize: 'small' | 'medium' | 'large' = 'large';
+let clothSize: ClothSize = 'large';
+
+function add(num1: number, num2: number): number {
+  return num1 + num2
+}
+
+function sayHello(): void {
+  console.log('hello!!');
+}
+
+const anotherAdd: (n1: number, n2: number) => number = add;
+
+const doubleNumber: (num: number) => number = num => num * 2;

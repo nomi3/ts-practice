@@ -50,3 +50,4 @@ function sayHello(): void {
 const anotherAdd: (n1: number, n2: number) => number = add;
 
 const doubleNumber: (num: number) => number = num => num * 2;
+

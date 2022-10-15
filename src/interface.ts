@@ -1,5 +1,7 @@
-interface Human {
+interface Nameable {
   name: string;
+}
+interface Human extends Nameable {
   age: number;
   greeting(message: string): void;
 }
@@ -12,3 +14,11 @@ const human: Human = {
   }
 }
 
+class Developer implements Human {
+  constructor(public name: string, public age: number, public experience: number) {}
+  greeting(message: string): void {
+    console.log(message);
+  }
+}
+
+const user = new Developer('Quill', 38, 3);

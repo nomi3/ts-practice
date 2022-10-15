@@ -38,6 +38,12 @@ class Teacher extends Person {
         }
         this._subject = value;
     }
+    static getInstence() {
+        if (Teacher.instance)
+            return Teacher.instance;
+        Teacher.instance = new Teacher('Quill', 38, 'Math');
+        return Teacher.instance;
+    }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
+const teacher = Teacher.getInstence();
 teacher.greeting();

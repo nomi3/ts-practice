@@ -1,4 +1,11 @@
 "use strict";
+let addFunc;
+addFunc = (n1, n2) => {
+    return n1 + n2;
+};
+const nameable = {
+    name: 'aai'
+};
 const human = {
     name: 'Quill',
     age: 38,
@@ -12,7 +19,7 @@ class Developer {
         this.age = age;
         this.experience = experience;
     }
-    greeting(message) {
+    greeting(message = 'hello') {
         console.log(message);
     }
 }

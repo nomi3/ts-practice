@@ -8,13 +8,17 @@ interface Blogger {
   follower: number;
 }
 
-
+function toUpperCase(x: string): string;
+function toUpperCase(x: number): number;
 function toUpperCase(x: string | number) {
   if (typeof x === 'string') {
     return x.toUpperCase();
   }
-  return '';
+  return x;
 }
+
+const upperHello = toUpperCase('Hello');
+
 
 type NomadWorker = Engineer | Blogger;
 
@@ -29,12 +33,14 @@ function describeProfile(nomadWorker: NomadWorker) {
 }
 
 class Dog {
+  kind: 'dog' = 'dog';
   speak() {
     console.log('bow-wow');
   }
 }
 
 class Bird {
+  kind: 'bird' = 'bird';
   speak() {
     console.log('tweet-tweet');
   }
@@ -46,8 +52,10 @@ class Bird {
 type Pet = Dog | Bird;
 function havePet(pet: Pet) {
   pet.speak();
-  if (pet instanceof Bird) {
-    pet.fly();
+  switch (pet.kind) {
+    case 'bird':
+      pet.fly();
   }
 }
 
+havePet(new Bird());

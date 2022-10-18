@@ -3,8 +3,9 @@ function toUpperCase(x) {
     if (typeof x === 'string') {
         return x.toUpperCase();
     }
-    return '';
+    return x;
 }
+const upperHello = toUpperCase('Hello');
 function describeProfile(nomadWorker) {
     console.log(nomadWorker.name);
     if ('role' in nomadWorker) {
@@ -15,11 +16,17 @@ function describeProfile(nomadWorker) {
     }
 }
 class Dog {
+    constructor() {
+        this.kind = 'dog';
+    }
     speak() {
         console.log('bow-wow');
     }
 }
 class Bird {
+    constructor() {
+        this.kind = 'bird';
+    }
     speak() {
         console.log('tweet-tweet');
     }
@@ -29,7 +36,9 @@ class Bird {
 }
 function havePet(pet) {
     pet.speak();
-    if (pet instanceof Bird) {
-        pet.fly();
+    switch (pet.kind) {
+        case 'bird':
+            pet.fly();
     }
 }
+havePet(new Bird());

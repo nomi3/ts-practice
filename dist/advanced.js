@@ -42,3 +42,4 @@ function havePet(pet) {
     }
 }
 havePet(new Bird());
+const test = 'test';

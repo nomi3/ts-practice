@@ -43,3 +43,6 @@ function havePet(pet) {
 }
 havePet(new Bird());
 const test = 'test';
+function advancedFn(...args) {
+}
+advancedFn(0, 'hi');

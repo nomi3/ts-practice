@@ -61,3 +61,9 @@ function havePet(pet: Pet) {
 havePet(new Bird());
 
 const test = 'test';
+
+function advancedFn(...args: [number, string, boolean?]) {
+
+}
+
+advancedFn(0, 'hi');

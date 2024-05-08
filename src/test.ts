@@ -1,25 +1,40 @@
+// Interface definition
 interface CircleStat {
   id: string;
   name: string;
   count: number;
 }
+const id = Array.from({ length: 100 }, (_, i) => (i + 1).toString());
+// Original code
+(function () {
+  console.time("Original Code");
+  console.log(id.length);
+  const filteredId = id.filter((value) => value !== "3");
 
-const id: string[] = ["1", "2", "3", "4", "5"];
-const filteredId: string[] = id.filter((value: string) => {
-  return value !== "3";
-});
-
-const circles: CircleStat[] = id.map((value: string) => {
-  return {
+  const circles = id.map((value) => ({
     id: value,
     name: `name-${value}`,
     count: Math.random() * 100,
-  };
-});
-console.log(circles);
+  }));
 
-const filteredCircles: CircleStat[] = circles.filter(({ id }) => {
-  return filteredId.includes(id);
-});
+  const filteredCircles = circles.filter(({ id }) => filteredId.includes(id));
+  console.log(filteredCircles.length);
+  console.timeEnd("Original Code");
+})();
 
-console.log(filteredCircles);
+// Refactored code
+(function () {
+  console.time("Refactored Code");
+  console.log(id.length);
+  const filteredIdSet = new Set(id.filter((value) => value !== "3"));
+
+  const circles = id.map((value) => ({
+    id: value,
+    name: `name-${value}`,
+    count: Math.random() * 100,
+  }));
+
+  const filteredCircles = circles.filter(({ id }) => filteredIdSet.has(id));
+  console.log(filteredCircles.length);
+  console.timeEnd("Refactored Code");
+})();
